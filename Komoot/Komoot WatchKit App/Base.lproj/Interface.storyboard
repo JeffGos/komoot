@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="14113" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
+    <device id="watch38" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="watchOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="14033"/>
+    </dependencies>
+    <scenes>
+        <!--WatchUI-->
+        <scene sceneID="aou-V4-d1y">
+            <objects>
+                <controller identifier="WatchUI" id="AgC-eL-Hgc" customClass="InterfaceController" customModule="Komoot_WatchKit_Extension">
+                    <items>
+                        <button width="1" alignment="left" title="Start" id="qMV-ML-PLk">
+                            <color key="titleColor" red="0.96842000407571072" green="0.98092240992961932" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="backgroundColor" red="0.1877975721" green="0.58539102980000002" blue="0.13478587929999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <action selector="onStartStopButtonTapped" destination="AgC-eL-Hgc" id="Vt2-0u-mKU"/>
+                            </connections>
+                        </button>
+                        <table alignment="left" id="SQ0-30-zpC">
+                            <items>
+                                <tableRow identifier="ImageRow" id="AQE-br-rTf" customClass="ImageRowController" customModule="Komoot_WatchKit_Extension">
+                                    <group key="rootItem" width="1" height="0.0" alignment="left" spacing="6" id="M8I-yD-lWV">
+                                        <items>
+                                            <imageView alignment="left" contentMode="scaleAspectFit" id="x23-EB-Aca"/>
+                                        </items>
+                                    </group>
+                                    <connections>
+                                        <outlet property="image" destination="x23-EB-Aca" id="hdV-9c-7ki"/>
+                                    </connections>
+                                </tableRow>
+                            </items>
+                        </table>
+                    </items>
+                    <connections>
+                        <outlet property="imageTable" destination="SQ0-30-zpC" id="lL3-2R-HE9"/>
+                        <outlet property="startStopButton" destination="qMV-ML-PLk" id="iPZ-4J-j2a"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="220" y="345"/>
+        </scene>
+        <!--Static Notification Interface Controller-->
+        <scene sceneID="AEw-b0-oYE">
+            <objects>
+                <notificationController id="YCC-NB-fut">
+                    <items>
+                        <label alignment="left" text="title" id="g8I-8Y-mkE">
+                            <color key="textColor" red="0.1877975721" green="0.58539102980000002" blue="0.13478587929999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </label>
+                        <label alignment="left" text="alert" id="IdU-wH-bcW" userLabel="alert">
+                            <color key="textColor" red="0.1877975721" green="0.58539102980000002" blue="0.13478587929999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </label>
+                        <imageView alignment="left" id="D5U-Bd-iMH" userLabel="image"/>
+                    </items>
+                    <notificationCategory key="notificationCategory" id="JfB-70-Muf" userLabel="myCategory">
+                        <color key="titleColor" red="0.30104023292174986" green="0.58539102980000002" blue="0.28721193516654214" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </notificationCategory>
+                    <connections>
+                        <outlet property="notificationAlertLabel" destination="IdU-wH-bcW" id="TbZ-aR-RQr"/>
+                        <outlet property="notificationTitleLabel" destination="g8I-8Y-mkE" id="Ce7-TI-HaU"/>
+                        <segue destination="jLd-Y5-jJ9" kind="relationship" relationship="dynamicNotificationInterface" id="47G-rb-eNz"/>
+                    </connections>
+                </notificationController>
+            </objects>
+            <point key="canvasLocation" x="220" y="643"/>
+        </scene>
+        <!--Notification Controller-->
+        <scene sceneID="70h-jK-Dmx">
+            <objects>
+                <controller id="jLd-Y5-jJ9" customClass="NotificationController" customModule="Komoot_WatchKit_Extension"/>
+            </objects>
+            <point key="canvasLocation" x="520" y="643"/>
+        </scene>
+    </scenes>
+</document>
